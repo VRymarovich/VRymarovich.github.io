@@ -1,0 +1,42 @@
+{
+  "name": "connect-4",
+  "version": "1.0.0",
+  "description": "connect 4 game in browser",
+  "main": "dist/connect4.js",
+  "scripts": {
+    "build:css": "stylus src/main.css -o dist/connect4.css",
+    "build:js": "browserify --s Connect4 src/main.js -o dist/connect4.js",
+    "watch:css": "stylus -w src/main.css -o dist/connect4.css",
+    "watch:js": "watchify --s Connect4 src/main.js -o dist/connect4.js -d",
+    "build": "npm run build:css && npm run build:js",
+    "watch": "npm run watch:css && npm run watch:js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VRymarovich/connect4.git"
+  },
+  "keywords": [
+    "connect4",
+    "game"
+  ],
+  "author": {
+    "name": "RymarovichV"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VRymarovich/connect4/issues"
+  },
+  "homepage": "https://github.com/VRymarovich/connect4",
+  "devDependencies": {
+    "browserify": "^13.1.1",
+    "browserify-css": "^0.9.2",
+    "stylus": "^0.54.5",
+    "watchify": "^3.7.0"
+  },
+  "readme": "Connect4\r\nConnect4 is a web version of a very famous logical game.\r\n",
+  "readmeFilename": "README.md",
+  "gitHead": "960be9072ca5fc2c37824dea937be3eeefebb3a6",
+  "_id": "connect-4@1.0.0",
+  "_shasum": "63701b402d5aed06d05eb979005897c175789149",
+  "_from": "connect-4@"
+}
