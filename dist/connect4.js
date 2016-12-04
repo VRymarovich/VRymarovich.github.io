@@ -99,7 +99,7 @@ module.exports = {
     },
     showWinnerCells: function(targetCell, directions){
         var rows = document.getElementById('cells').rows;
-        directions.forEach(function(direction){
+	directions.forEach(function(direction){
             var hor = parseInt(targetCell.attributes.hor.value);//get starting point
             var ver = parseInt(targetCell.attributes.ver.value);
             if(direction[3]=='w' && direction[2]>0){
@@ -112,7 +112,7 @@ module.exports = {
                                 cell.className = 'flash ' + cell.className;
                             }
                         }
-                    }
+                 }
                     hor = hor + direction[0];
                     ver = ver + direction[1];
                 }
@@ -132,7 +132,7 @@ module.exports = {
     },
     checkField: function(field, playerId, playerValues, targetCell, valueToWin){
         var cell = targetCell;
-        var value = playerValues[playerId] * valueToWin;
+	var value = playerValues[playerId] * valueToWin;
         var directions = [[1,0],//East
                           [-1,0],//West
                           [0,1],//South
@@ -177,7 +177,7 @@ module.exports = {
         if (directions[4][2]>=valueToWin-1){//check SouthWest direction
             directions[4][3]='w';
             isWin = true;
-        }
+      }
         if (directions[5][2]>=valueToWin-1){//check NorthEast direction
             directions[5][3]='w';
             isWin = true;
@@ -272,8 +272,8 @@ function click(event){
         event.target.className = options.players[player].color + ' cell';
         event.target.setAttribute('busy', options.players[player].color);
         field[event.target.attributes.ver.value-1][event.target.attributes.hor.value-1] = playerValues[player];// set field value.
-        var fieldStatus = logic.checkField(field, player, playerValues, event.target.attributes, valueToWin);//check if this move is winning.
-        if(fieldStatus==0){
+var fieldStatus = logic.checkField(field, player, playerValues, event.target.attributes, valueToWin);//check if this move is winning.
+if(fieldStatus==0){
             player = logic.changePlayer(player);
             graphics.updateField(event.target);
             graphics.writeStatus('Player '+options.players[player].name+'`s move');
@@ -311,6 +311,7 @@ function start(){
     graphics.writeScore(score);
     graphics.addEventListenersToCells(mouseOver, click);
 }
+
 
 },{"./graphics.js":1,"./logic.js":2}]},{},[3])(3)
 });
