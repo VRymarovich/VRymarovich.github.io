@@ -25,6 +25,7 @@ var playerValues = [-1,1];
 var score = [0,0];
 var field = [];
 var player = 0;
+var valueToWin = 4;//number of cells to win
 var options = {'horizontal': 7, 'vertical': 6,'players': 
                    [{'name':'SuperMan', 'color':'red'}, {'name':'IronMan', 'color':'yellow'}]};
 
@@ -39,8 +40,8 @@ function click(event){
     if(event.target.attributes.busy.value=='free'){
         event.target.className = options.players[player].color + ' cell';
         event.target.setAttribute('busy', options.players[player].color);
-        field[event.target.attributes.ver.value-1][event.target.attributes.hor.value-1] = playerValues[player];
-        var fieldStatus = logic.checkField(field, player, playerValues, event.target.attributes);
+        field[event.target.attributes.ver.value-1][event.target.attributes.hor.value-1] = playerValues[player];// set field value.
+        var fieldStatus = logic.checkField(field, player, playerValues, event.target.attributes, valueToWin);//check if this move is winning.
         if(fieldStatus==0){
             player = logic.changePlayer(player);
             graphics.updateField(event.target);
